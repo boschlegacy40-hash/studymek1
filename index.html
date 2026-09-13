@@ -6,92 +6,107 @@
 <meta name="color-scheme" content="light only">
 <title>StudyMek — NGSA Grade 6 Practice</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* Guyana Digital School palette — drawn from the Golden Arrowhead, kept muted for an official/institutional register */
-    --forest:#0E4429;
-    --forest-deep:#082E1B;
-    --gold:#A8791C;
-    --gold-bright:#C79430;
-    --brick:#A3402F;
-    --paper:#F6F3E8;
+    /* Marketplace-inspired palette — search-first layout, blue text links, white "listing card" surfaces */
+    --blue:#0654BA;
+    --blue-deep:#0A3D8F;
+    --accent-red:#E53238;
+    --accent-yellow:#F5AF02;
+    --accent-green:#4C8B2B;
+    --paper:#FFFFFF;
     --panel:#FFFFFF;
-    --ink:#1B2620;
-    --ink-soft:#54604F;
-    --line:#DAD3BE;
+    --ink:#1A1A1A;
+    --ink-soft:#656565;
+    --line:#E4E4E4;
     --white:#FFFFFF;
-    --radius:10px;
+    --radius:14px;
     /* legacy aliases so untouched rules elsewhere keep working */
-    --navy:var(--forest);
-    --navy-deep:var(--forest-deep);
-    --teal:var(--gold);
-    --pink:var(--brick);
+    --forest:var(--blue);
+    --forest-deep:var(--blue-deep);
+    --gold:var(--accent-yellow);
+    --gold-bright:#FFC94D;
+    --brick:var(--accent-red);
+    --navy:var(--blue);
+    --navy-deep:var(--blue-deep);
+    --teal:var(--accent-yellow);
+    --pink:var(--accent-red);
     --cream:var(--paper);
   }
   *{box-sizing:border-box;}
   html{color-scheme:light only;background:var(--paper);}
   body{margin:0;font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);}
-  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  h1,h2,h3,.display{font-family:'Inter',sans-serif;font-weight:700;letter-spacing:-0.01em;}
   button{font-family:inherit;cursor:pointer;}
   a{color:inherit;}
 
-  /* ===== Top utility bar — thin flag-toned strip ===== */
-  .util-bar{background:var(--forest-deep);color:#CFE3D2;font-size:12px;padding:5px 24px;display:flex;justify-content:space-between;letter-spacing:.01em;}
+  /* ===== Top utility bar ===== */
+  .util-bar{background:#F7F7F7;color:var(--ink-soft);font-size:12px;padding:6px 24px;display:flex;justify-content:space-between;border-bottom:1px solid var(--line);}
   .util-bar span{opacity:.9;}
 
-  /* ===== Masthead ===== */
-  header.fb-topbar{background:var(--forest);color:white;border-bottom:3px solid var(--gold);}
-  .fb-topbar-inner{max-width:1180px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
-  .fb-tb-left{display:flex;align-items:center;gap:22px;flex:1;min-width:260px;}
-  .logo{display:flex;align-items:baseline;gap:0;font-family:'Fraunces',serif;font-size:23px;font-weight:600;white-space:nowrap;cursor:pointer;}
-  .logo .dot{color:var(--gold-bright);}
-  .search-wrap{flex:1;min-width:200px;display:flex;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.25);}
-  .search-wrap select{border:none;background:var(--paper);padding:0 10px;font-size:13px;color:var(--ink);font-family:inherit;}
-  .search-wrap input{flex:1;border:none;padding:10px 12px;font-size:14px;outline:none;font-family:inherit;}
-  .search-wrap button{background:var(--gold);border:none;padding:0 16px;font-weight:700;color:var(--forest-deep);}
-  .header-actions{display:flex;align-items:center;gap:18px;font-size:13px;white-space:nowrap;}
+  /* ===== Masthead — search-first, white background, blue accents ===== */
+  header.fb-topbar{background:white;color:var(--ink);border-bottom:1px solid var(--line);}
+  .fb-topbar-inner{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .fb-tb-left{display:flex;align-items:center;gap:18px;flex:1;min-width:260px;}
+  .logo{display:flex;align-items:baseline;gap:0;font-family:'Inter',sans-serif;font-size:25px;font-weight:800;white-space:nowrap;cursor:pointer;color:var(--blue);}
+  .logo .dot{color:var(--accent-red);}
+  .search-wrap{flex:1;min-width:160px;display:flex;border-radius:999px;overflow:hidden;border:2px solid var(--blue);}
+  .search-wrap select{border:none;background:#F5F5F5;padding:0 10px;font-size:13px;color:var(--ink);font-family:inherit;border-right:1px solid var(--line);}
+  .search-wrap input{flex:1;min-width:0;border:none;padding:11px 16px;font-size:14px;outline:none;font-family:inherit;}
+  .search-wrap button{background:var(--blue);border:none;padding:0 22px;font-weight:700;color:white;}
+  .header-actions{display:flex;align-items:center;gap:18px;font-size:13px;white-space:nowrap;color:var(--blue);}
   .header-actions .stat{display:flex;flex-direction:column;line-height:1.25;cursor:pointer;}
-  .header-actions .stat b{font-size:14px;}
-  .cart-btn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.4);color:white;padding:8px 14px;border-radius:6px;font-weight:600;font-size:13px;}
-  .cart-btn:hover{background:rgba(255,255,255,.12);}
+  .header-actions .stat b{font-size:14px;color:var(--ink);}
+  .cart-btn{display:flex;align-items:center;gap:6px;background:white;border:1px solid var(--blue);color:var(--blue);padding:8px 16px;border-radius:999px;font-weight:700;font-size:13px;}
+  .cart-btn:hover{background:#EAF1FC;}
 
-  nav.category-strip{background:var(--forest-deep);color:#DCE9DE;font-size:13px;padding:8px 24px;display:flex;gap:24px;overflow-x:auto;}
-  nav.category-strip a{white-space:nowrap;padding:2px 0;border-bottom:2px solid transparent;font-weight:500;cursor:pointer;}
-  nav.category-strip a:hover{border-color:var(--gold-bright);color:white;}
+  @media(max-width:680px){
+    .fb-topbar-inner{padding:10px 14px;gap:10px;}
+    .fb-tb-left{min-width:100%;order:1;justify-content:space-between;}
+    .search-wrap{order:3;min-width:100%;flex-basis:100%;}
+    .header-actions{order:2;margin-left:auto;gap:12px;}
+    .header-actions .stat span{display:none;}
+    .logo{font-size:21px;}
+    .cart-btn span{display:none;}
+  }
 
-  .level-strip{background:var(--panel);border-bottom:1px solid var(--line);padding:0 24px;display:flex;gap:6px;align-items:center;max-width:1180px;margin:0 auto;}
+  nav.category-strip{background:white;color:var(--blue);font-size:13px;padding:8px 24px;display:flex;gap:22px;overflow-x:auto;border-bottom:1px solid var(--line);}
+  nav.category-strip a{white-space:nowrap;padding:2px 0;border-bottom:2px solid transparent;font-weight:600;cursor:pointer;}
+  nav.category-strip a:hover{border-color:var(--blue);text-decoration:underline;}
+
+  .level-strip{background:var(--panel);border-bottom:1px solid var(--line);padding:0 24px;display:flex;gap:8px;align-items:center;max-width:1280px;margin:0 auto;}
   .level-strip .level-label{font-size:12px;color:var(--ink-soft);font-weight:600;margin-right:6px;}
-  .level-tab{background:transparent;border:none;border-bottom:3px solid transparent;color:var(--ink-soft);font-weight:600;font-size:14px;padding:14px 4px;margin-right:22px;border-radius:0;}
-  .level-tab.active{color:var(--forest);border-color:var(--gold);}
+  .level-tab{background:#F0F5FE;border:1.5px solid #F0F5FE;color:var(--blue);font-weight:700;font-size:13.5px;padding:9px 18px;margin-right:0;border-radius:999px;}
+  .level-tab.active{background:var(--blue);border-color:var(--blue);color:white;}
 
-  main{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
+  main{max-width:1280px;margin:0 auto;padding:18px 20px 60px;}
 
-  /* ===== Hero — left-aligned masthead statement, no gradient/badge cliché ===== */
-  .hero{background:var(--forest);border-radius:0;color:white;padding:44px 8px 40px;display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap;margin:0 0 30px;border-bottom:5px solid var(--gold);}
+  /* ===== Hero — slim promo banner, not a big gradient block ===== */
+  .hero{background:var(--blue);border-radius:20px;color:white;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;}
   .hero-copy{max-width:640px;}
-  .hero-copy .eyebrow{font-size:13px;color:var(--gold-bright);font-weight:600;letter-spacing:.02em;margin-bottom:10px;}
-  .hero-copy h1{font-family:'Fraunces',serif;font-size:38px;font-weight:600;line-height:1.18;margin:0 0 14px;max-width:15ch;}
-  .hero-copy p{font-size:15.5px;color:#D9E6DC;margin:0 0 20px;line-height:1.6;max-width:56ch;}
-  .hero-cta{background:var(--gold);color:var(--forest-deep);border:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:14.5px;}
-  .hero-badge{border-left:2px solid var(--gold);padding:2px 0 2px 18px;text-align:left;min-width:150px;}
-  .hero-badge b{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:white;}
-  .hero-badge span{font-size:12.5px;color:#BFD3C4;}
+  .hero-copy .eyebrow{font-size:12.5px;color:#CFE0FA;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px;}
+  .hero-copy h1{font-family:'Inter',sans-serif;font-size:26px;font-weight:800;line-height:1.25;margin:0 0 8px;max-width:32ch;}
+  .hero-copy p{font-size:14px;color:#E4EDFB;margin:0 0 16px;line-height:1.55;max-width:56ch;}
+  .hero-cta{background:white;color:var(--blue);border:none;padding:11px 22px;border-radius:20px;font-weight:700;font-size:14px;}
+  .hero-badge{border-left:2px solid rgba(255,255,255,.4);padding:2px 0 2px 18px;text-align:left;min-width:150px;}
+  .hero-badge b{display:block;font-family:'Inter',sans-serif;font-size:24px;font-weight:800;color:white;}
+  .hero-badge span{font-size:12.5px;color:#CFE0FA;}
 
   /* ===== Section heading ===== */
-  .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin:36px 0 16px;border-bottom:1px solid var(--line);padding-bottom:10px;}
-  .sec-head h2{font-size:20px;margin:0;font-weight:600;}
+  .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin:30px 0 14px;border-bottom:1px solid var(--line);padding-bottom:10px;}
+  .sec-head h2{font-size:19px;margin:0;font-weight:800;}
   .sec-head p{margin:0;font-size:13px;color:var(--ink-soft);}
 
-  /* ===== Subject grid — flat accent-bar cards, not the soft-shadow SaaS kit ===== */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;}
-  .card{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--forest);border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:border-color .15s ease;}
-  .card:hover{border-top-color:var(--gold);}
-  .card .icon{width:42px;height:42px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:21px;}
-  .card h3{margin:0;font-size:16.5px;font-weight:600;}
-  .card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.45;flex:1;}
-  .progress-track{background:#E9E3D0;border-radius:6px;height:7px;overflow:hidden;}
-  .progress-fill{height:100%;background:var(--gold);border-radius:6px;}
+  /* ===== Subject grid — bordered "listing card" style ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+  .card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;gap:8px;transition:box-shadow .15s ease, border-color .15s ease;}
+  .card:hover{box-shadow:0 2px 8px rgba(0,0,0,.12);border-color:#C9C9C9;}
+  .card .icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;background:#F0F5FE;}
+  .card h3{margin:0;font-size:15.5px;font-weight:700;}
+  .card p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.4;flex:1;}
+  .progress-track{background:#EDEDED;border-radius:6px;height:6px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--accent-green);border-radius:6px;}
   .card .meta{font-size:12px;color:var(--ink-soft);display:flex;justify-content:space-between;}
   .card button{background:var(--forest);color:white;border:none;padding:9px 0;border-radius:5px;font-weight:600;font-size:13.5px;}
   .card button:hover{background:var(--forest-deep);}
@@ -110,7 +125,7 @@
   .subject-layout{display:flex;align-items:flex-start;gap:20px;}
   .subject-layout #set-list{flex:1;min-width:0;}
   .qcount-panel{width:250px;flex-shrink:0;background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:4px;padding:16px;position:sticky;top:90px;}
-  .qcount-head{font-family:'Fraunces',serif;font-weight:600;font-size:15px;margin-bottom:6px;}
+  .qcount-head{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;margin-bottom:6px;}
   .qcount-copy{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin:0 0 12px;}
   .qcount-options{display:flex;flex-direction:column;gap:6px;}
   .qcount-opt{background:var(--paper);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:13.5px;padding:9px 10px;border-radius:6px;text-align:left;}
@@ -132,6 +147,9 @@
   .q-progress-fill{height:100%;background:var(--pink);border-radius:6px;transition:width .25s ease;}
   .q-count{font-size:12.5px;color:var(--ink-soft);font-weight:700;margin-bottom:6px;}
   .q-text{font-size:18px;font-weight:700;margin:6px 0 18px;line-height:1.4;}
+  .passage-panel{background:#F7F7F7;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;padding:16px 18px;margin-bottom:16px;max-height:280px;overflow-y:auto;}
+  .passage-label{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--blue);margin-bottom:8px;}
+  .passage-text{font-size:14px;line-height:1.65;color:var(--ink);white-space:pre-line;}
   .opt{display:block;width:100%;text-align:left;background:#F8F6EF;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;font-size:14.5px;font-weight:600;}
   .opt:hover{border-color:var(--teal);}
   .opt.selected{border-color:var(--navy);background:#EAF1F7;}
@@ -238,7 +256,7 @@
   .timeline-detail{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--forest);border-radius:4px;padding:26px 28px;text-align:left;}
   .tl-detail-icon{font-size:32px;margin-bottom:6px;}
   .tl-detail-year{font-size:12.5px;font-weight:700;color:var(--gold);letter-spacing:.02em;margin-bottom:4px;}
-  .tl-detail-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:0 0 12px;}
+  .tl-detail-title{font-family:'Inter',sans-serif;font-size:22px;font-weight:600;margin:0 0 12px;}
   .tl-detail-text{font-size:15px;line-height:1.65;color:var(--ink);margin:0;}
   .tl-detail-nav{display:flex;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
   .tl-nav-btn{background:var(--paper);border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:13px;padding:9px 16px;border-radius:6px;}
@@ -257,7 +275,7 @@
   .fw-stepper{display:flex;align-items:center;gap:18px;}
   .fw-step-btn{background:var(--forest);color:white;border:none;width:38px;height:38px;border-radius:6px;font-size:18px;font-weight:700;line-height:1;}
   .fw-step-btn:hover{background:var(--forest-deep);}
-  .fw-num-display{font-family:'Fraunces',serif;font-size:24px;font-weight:600;min-width:24px;text-align:center;}
+  .fw-num-display{font-family:'Inter',sans-serif;font-size:24px;font-weight:600;min-width:24px;text-align:center;}
   .fw-diagram-area{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:4px;padding:22px 20px;text-align:center;}
   .fw-bar{width:100%;max-width:400px;height:auto;}
   .fw-caption{margin-top:16px;font-size:15px;line-height:1.6;color:var(--ink);}
@@ -320,27 +338,27 @@
   .logo:hover .logo-badge{transform:rotate(-8deg) scale(1.06);}
   .logo-img{height:38px;width:auto;display:block;background:white;border-radius:8px;padding:3px 8px;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s ease;}
   .logo:hover .logo-img{transform:scale(1.04);}
-  .logo-text{font-family:'Fraunces',serif;font-size:22px;font-weight:600;}
+  .logo-text{font-family:'Inter',sans-serif;font-size:22px;font-weight:600;}
   .fb-topbar .level-strip{background:transparent;border:none;padding:0;}
-  .fb-topbar .level-strip .level-label{color:#cfe0ec;}
-  .fb-topbar .level-tab{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#e7eef4;}
-  .fb-topbar .level-tab.active{background:var(--gold);border-color:var(--gold);color:var(--navy-deep);}
-  .fb-topbar .header-actions{color:white;}
+  .fb-topbar .level-strip .level-label{color:var(--ink-soft);}
+  .fb-topbar .level-tab{background:#F0F5FE;border-color:#F0F5FE;color:var(--blue);}
+  .fb-topbar .level-tab.active{background:var(--blue);border-color:var(--blue);color:white;}
+  .fb-topbar .header-actions{color:var(--blue);}
 
   /* ---- Three-column shell ---- */
   .fb-shell{max-width:1400px;margin:0 auto;padding:20px;display:flex;align-items:flex-start;gap:20px;}
   .fb-shell main{max-width:none;flex:1 1 0;min-width:0;margin:0;padding:0 0 40px;}
   .fb-sidebar{width:260px;flex-shrink:0;position:sticky;top:84px;display:flex;flex-direction:column;gap:4px;max-height:calc(100vh - 100px);overflow-y:auto;}
   .fb-sidebar-right{width:300px;}
-  .fb-home-link{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:4px;font-weight:600;color:var(--forest);cursor:pointer;border-left:3px solid transparent;transition:background .15s ease, border-color .15s ease;}
-  .fb-home-link:hover{background:#EDEADA;border-left-color:var(--gold);}
+  .fb-home-link{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:4px;font-weight:600;color:var(--blue);cursor:pointer;border-left:3px solid transparent;transition:background .15s ease, border-color .15s ease;}
+  .fb-home-link:hover{background:#EAF1FC;border-left-color:var(--blue);}
   .category-strip{display:flex;flex-direction:column;gap:2px;background:none;padding:0;overflow:visible;}
   .category-strip a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:4px;font-weight:500;font-size:14px;color:var(--ink);white-space:normal;border-bottom:none;border-left:3px solid transparent;cursor:pointer;transition:background .15s ease, border-color .15s ease;}
-  .category-strip a:hover{background:#EDEADA;border-left-color:var(--gold);}
+  .category-strip a:hover{background:#EAF1FC;border-left-color:var(--blue);}
 
   /* ---- Right sidebar widgets ---- */
   .fb-widget{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:16px;margin-bottom:16px;animation:fbFadeIn .5s ease both;}
-  .fb-widget-head{font-weight:600;font-size:15px;margin-bottom:10px;color:var(--ink);font-family:'Fraunces',serif;}
+  .fb-widget-head{font-weight:700;font-size:15px;margin-bottom:10px;color:var(--ink);font-family:'Inter',sans-serif;}
   .fb-tip-widget p{font-size:13px;color:var(--ink-soft);line-height:1.55;margin:0;}
 
   @media(max-width:1050px){ .fb-sidebar-right{display:none;} }
@@ -405,7 +423,8 @@
   .region-table tr:last-child td{border-bottom:none;}
   .region-table tr:hover td{background:#F0F4F8;}
   .leaders-list{display:flex;flex-direction:column;gap:2px;margin-top:6px;}
-  .leader-row{display:flex;gap:14px;font-size:13.5px;padding:9px 0;border-bottom:1px dashed var(--line);line-height:1.55;}
+  .leader-row{display:flex;gap:14px;font-size:13.5px;padding:9px 0;border-bottom:1px dashed var(--line);line-height:1.55;align-items:center;}
+  .leader-photo{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
   .leader-row:last-child{border-bottom:none;}
   .leader-term{min-width:104px;flex-shrink:0;font-weight:800;color:var(--pink);}
 
@@ -553,6 +572,7 @@
       <a onclick="showView('papers')">📄 Official Past Papers</a>
       <a onclick="showView('alerts')">🔔 News &amp; Alerts</a>
       <a onclick="showView('history')">🇬🇾 Guyana History</a>
+      <a onclick="showView('pbq')">📖 Passage-Based Questions</a>
       <a onclick="showView('guyana-explainer')">🕰️ Guyana Explained (Interactive)</a>
       <a onclick="showView('monuments-flow')">🗺️ Monuments Flow (Interactive)</a>
       <a onclick="showView('peoples-flow')">🌎 Founding Peoples Flow (Interactive)</a>
@@ -689,7 +709,7 @@
           <div class="leader-row"><span class="leader-term">1997–1999</span><span><b>Janet Jagan</b> — 6th President; Cheddi Jagan's widow; Guyana's first woman President; resigned due to ill health</span></div>
           <div class="leader-row"><span class="leader-term">1999–2011</span><span><b>Bharrat Jagdeo</b> — 7th President; now serves as Vice President under Irfaan Ali</span></div>
           <div class="leader-row"><span class="leader-term">2011–2015</span><span><b>Donald Ramotar</b> — 8th President</span></div>
-          <div class="leader-row"><span class="leader-term">2015–2020</span><span><b>David Granger</b> — 9th President; first President from the APNU coalition</span></div>
+          <div class="leader-row"><img class="leader-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/David_Granger_at_48th_Mercosur_Summit_(cropped).jpg?width=200" alt="David Granger"><span class="leader-term">2015–2020</span><span><b>David Granger</b> — 9th President; first President from the APNU coalition</span></div>
           <div class="leader-row"><span class="leader-term">2020–present</span><span><b>Irfaan Ali</b> — 10th and current President; re-elected to a second term in the September 2025 general election. Prime Minister and First Vice President <b>Mark Phillips</b> and Vice President <b>Bharrat Jagdeo</b> serve alongside him.</span></div>
         </div>
       </div>
@@ -705,6 +725,26 @@
         <div class="tl-row"><span class="tl-date">2020</span><span>Irfaan Ali becomes the 10th President of Guyana.</span></div>
         <div class="tl-row"><span class="tl-date">Sept 2025</span><span>Irfaan Ali is re-elected President for a second term.</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- PASSAGE-BASED QUESTIONS (dedicated tab) -->
+  <section id="view-pbq" class="hidden">
+    <div class="sec-head" style="margin-top:0;"><h2>📖 Passage-Based Questions</h2><p>Read a passage, then answer questions about it — for NGSA and CXC</p></div>
+    <div class="subject-layout">
+      <div id="pbq-list"></div>
+      <aside class="qcount-panel">
+        <div class="qcount-head">Session length</div>
+        <p class="qcount-copy">Choose how many questions you want in each practice session before you start.</p>
+        <div class="qcount-options" id="qcount-options-pbq">
+          <button class="qcount-opt" data-n="5" onclick="setQuestionCount(5)">5 questions</button>
+          <button class="qcount-opt" data-n="10" onclick="setQuestionCount(10)">10 questions</button>
+          <button class="qcount-opt" data-n="15" onclick="setQuestionCount(15)">15 questions</button>
+          <button class="qcount-opt" data-n="20" onclick="setQuestionCount(20)">20 questions</button>
+          <button class="qcount-opt" data-n="all" onclick="setQuestionCount('all')">All questions</button>
+        </div>
+        <p class="qcount-note">If a passage has fewer questions than your chosen number, you'll get all of them.</p>
+      </aside>
     </div>
   </section>
 
@@ -975,6 +1015,10 @@
     <div class="quiz-shell">
       <div class="q-count" id="q-count">Question 1 of 5</div>
       <div class="q-progress-track"><div class="q-progress-fill" id="q-progress-fill" style="width:20%"></div></div>
+      <div class="passage-panel hidden" id="passage-panel">
+        <div class="passage-label" id="passage-label"></div>
+        <div class="passage-text" id="passage-text"></div>
+      </div>
       <div class="q-text" id="q-text"></div>
       <div class="q-face hidden" id="q-face"></div>
       <div id="q-options"></div>
@@ -1310,7 +1354,9 @@ const LEVELS = {
         {q:"Which of these is a compound word?", opts:["Running","Sunflower","Happiness","Careful"], correct:1, exp:"'Sunflower' is made of two whole words, 'sun' and 'flower', joined together."},
         {q:"What does the suffix '-ful' usually mean, as in 'careful' or 'joyful'?", opts:["Without","Full of","Before","Again"], correct:1, exp:"The suffix '-ful' means 'full of', so 'careful' means full of care."},
         {q:"Which word correctly completes: 'She was too tired ___ finish her homework.'", opts:["and","to","for","so"], correct:1, exp:"'Too...to' is the correct pairing to show something is not possible: 'too tired to finish'."}
-      ]}
+      ]},
+      {id:"eng-pbq-1", title:"Reading Comprehension: The Kite That Wouldn't Fly", tag:"Passage-Based", passage:{"title": "Read the passage, then answer the questions", "text": "Malika had been saving her lunch money for three weeks to buy the bright red kite from Mr. Persaud's shop on the corner. When Saturday finally came, she raced to the seawall with her older brother, Andre, the kite tucked carefully under her arm.\n\nBut no matter how hard Andre ran, pulling the string behind him, the kite only wobbled a few feet into the air before crashing back down into the grass. Malika's excitement faded into frustration. \"Maybe it's broken,\" she said, close to tears.\n\nAndre picked up the kite and turned it over in his hands. \"Look here,\" he said, pointing to the tail. \"There's nothing on it. A kite needs a tail to keep it steady in the wind, like a rudder on a boat.\"\n\nThey found some old cloth strips near a nearby stall and tied them to the bottom of the kite. This time, when Andre ran and let the string out, the kite lifted smoothly, higher and higher, dipping and swooping against the blue sky. Malika laughed and clapped as she took the string from her brother, feeling the tug of the wind in her hands for the first time.\n\n\"I almost gave up,\" she admitted.\n\n\"Good thing you didn't,\" Andre said, grinning. \"Sometimes the smallest thing is all that's missing.\""}, questions:[{"q": "How long had Malika been saving her lunch money?", "opts": ["One week", "Two weeks", "Three weeks", "A month"], "correct": 2, "exp": "The passage states she 'had been saving her lunch money for three weeks.'"}, {"q": "Where did Malika buy the kite?", "opts": ["A market downtown", "Mr. Persaud's shop on the corner", "An online store", "A stall at the seawall"], "correct": 1, "exp": "The passage says she bought it from 'Mr. Persaud's shop on the corner.'"}, {"q": "What was the main problem with the kite at first?", "opts": ["It had a tear in it", "It was too heavy", "It had no tail to keep it steady", "The string was too short"], "correct": 2, "exp": "Andre noticed 'there's nothing on it' — the kite had no tail, which is needed to keep it steady in the wind."}, {"q": "What does Andre compare the kite's tail to?", "opts": ["A sail on a ship", "A rudder on a boat", "An anchor", "A flag"], "correct": 1, "exp": "Andre says a kite's tail works 'like a rudder on a boat', helping to keep it steady."}, {"q": "How did Malika feel when the kite kept crashing?", "opts": ["Amused", "Proud", "Frustrated", "Relieved"], "correct": 2, "exp": "The passage says 'Malika's excitement faded into frustration.'"}, {"q": "What did they use to fix the kite?", "opts": ["A ball of string", "Old cloth strips", "A plastic bag", "Tape"], "correct": 1, "exp": "They 'found some old cloth strips near a nearby stall and tied them to the bottom of the kite.'"}, {"q": "What is the best word to describe how the kite flew after it was fixed?", "opts": ["Shakily", "Smoothly", "Slowly", "Barely"], "correct": 1, "exp": "The passage says 'the kite lifted smoothly, higher and higher.'"}, {"q": "What lesson does Andre's last line suggest?", "opts": ["Kites are difficult to fly", "Small details can make a big difference", "Malika should have bought a different kite", "Andre is better at flying kites than Malika"], "correct": 1, "exp": "Andre's comment, 'Sometimes the smallest thing is all that's missing,' suggests that a small detail (the tail) made all the difference — the main lesson of the passage."}, {"q": "What is Andre's relationship to Malika?", "opts": ["Her father", "Her older brother", "Her cousin", "Her friend"], "correct": 1, "exp": "The passage introduces him as 'her older brother, Andre.'"}, {"q": "Where does the story take place?", "opts": ["At school", "At the seawall", "At Mr. Persaud's shop", "At home"], "correct": 1, "exp": "The passage says they 'raced to the seawall' to fly the kite, and that is where the main action happens."}]},
+      {id:"eng-pbq-2", title:"Reading Comprehension: The Class Trip", tag:"Passage-Based", passage:{"title": "Read the passage, then answer the questions", "text": "Every year, Grade Six at St. Joseph Primary looked forward to one thing above all else: the class trip to the Botanical Gardens. This year, however, heavy rain had fallen for three days straight, and many students worried the trip would be cancelled.\n\nOn the morning of the trip, dark clouds still hung low over Georgetown. Ms. Fraser, the class teacher, gathered the students together. \"The forecast says the rain should clear by mid-morning,\" she told them, \"so we will still go, but everyone must bring an umbrella just in case.\"\n\nThe bus ride was quiet with nervous anticipation, but by the time they arrived, the sun had broken through the clouds exactly as Ms. Fraser had predicted. The students spent the day exploring the gardens, spotting a manatee in the pond, and sketching the giant Victoria Regia lily pads for their science journals.\n\nAt the end of the day, tired but happy, the students boarded the bus again. \"I'm glad we didn't give up on the trip,\" said Kevin, one of the students, as he flipped through his sketchbook. Ms. Fraser smiled. \"Sometimes,\" she said, \"a little patience is rewarded with a beautiful day.\""}, questions:[{"q": "Where does St. Joseph Primary's class trip take place?", "opts": ["The seawall", "The Botanical Gardens", "A museum", "The National Park"], "correct": 1, "exp": "The passage says the class looked forward to 'the class trip to the Botanical Gardens.'"}, {"q": "Why were the students worried the trip might be cancelled?", "opts": ["The bus broke down", "Heavy rain had fallen for three days", "The teacher was ill", "The gardens were closed"], "correct": 1, "exp": "The passage states 'heavy rain had fallen for three days straight' and many students worried the trip would be cancelled."}, {"q": "What did Ms. Fraser tell the students to bring, just in case?", "opts": ["A raincoat", "An umbrella", "Extra shoes", "A jacket"], "correct": 1, "exp": "Ms. Fraser told them 'everyone must bring an umbrella just in case.'"}, {"q": "What animal did the students spot in the pond?", "opts": ["A turtle", "A manatee", "A crocodile", "A fish"], "correct": 1, "exp": "The passage says the students spotted 'a manatee in the pond.'"}, {"q": "What were the students sketching for their science journals?", "opts": ["Birds", "The giant Victoria Regia lily pads", "Trees", "The bus"], "correct": 1, "exp": "They were 'sketching the giant Victoria Regia lily pads for their science journals.'"}, {"q": "How did the weather change during the day?", "opts": ["It rained harder", "It stayed cloudy all day", "The sun broke through the clouds", "It snowed"], "correct": 2, "exp": "The passage says 'the sun had broken through the clouds exactly as Ms. Fraser had predicted.'"}, {"q": "How did the students feel on the bus ride to the gardens?", "opts": ["Excited and loud", "Nervous and quiet", "Angry", "Bored"], "correct": 1, "exp": "The passage describes 'the bus ride was quiet with nervous anticipation.'"}, {"q": "What lesson does Ms. Fraser's final comment teach?", "opts": ["Rain always ruins trips", "Patience can be rewarded", "Buses are unreliable", "Science journals are important"], "correct": 1, "exp": "Ms. Fraser says 'a little patience is rewarded with a beautiful day,' which is the main lesson of the passage."}, {"q": "How did the students feel at the end of the day?", "opts": ["Tired but happy", "Angry and tired", "Bored and sleepy", "Disappointed"], "correct": 0, "exp": "The passage says the students were 'tired but happy' as they boarded the bus again."}, {"q": "What is Kevin doing when he makes his comment about the trip?", "opts": ["Eating lunch", "Flipping through his sketchbook", "Talking to Ms. Fraser", "Getting off the bus"], "correct": 1, "exp": "The passage says Kevin spoke 'as he flipped through his sketchbook.'"}]}
     ]},
   sci: {name:"Science", icon:"🔬", color:"c-sci", desc:"Living things, matter, energy and the world around us.",
     sets:[
@@ -1347,7 +1393,8 @@ const LEVELS = {
         {q:"Which body system is mainly responsible for breathing?", opts:["Digestive system","Respiratory system","Skeletal system","Nervous system"], correct:1, exp:"The respiratory system, including the lungs, is responsible for breathing."},
         {q:"Getting enough sleep each night mainly helps the body to...", opts:["Grow weaker","Rest and repair itself","Stop growing","Become dehydrated"], correct:1, exp:"Sleep allows the body to rest, repair itself, and support healthy growth."},
         {q:"Which of these nutrients mainly helps build strong bones?", opts:["Sugar","Calcium","Caffeine","Salt"], correct:1, exp:"Calcium, found in foods like milk, helps build and maintain strong bones."}
-      ]}
+      ]},
+      {id:"sci-pbq-1", title:"Reading Comprehension: How Rain Forms", tag:"Passage-Based", passage:{"title": "Read the passage, then answer the questions", "text": "Have you ever wondered where rain comes from? It all starts with the sun. The sun's heat causes water in rivers, lakes and the ocean to evaporate, turning from a liquid into an invisible gas called water vapour. This water vapour rises high into the sky, where the air is much cooler.\n\nAs the water vapour rises and cools, it changes back into tiny droplets of liquid water. This process is called condensation. Billions of these tiny droplets cling together around specks of dust in the air, forming the clouds we see floating above us.\n\nInside a cloud, more and more droplets bump into each other and join together, growing bigger and heavier. Eventually, the droplets become too heavy for the air to hold up, and they fall to the ground as rain. This entire journey — evaporation, condensation, and finally precipitation (rain, or sometimes snow or hail) — is known as the water cycle.\n\nIn Guyana, this cycle brings two rainy seasons each year, which is why farmers plan their planting around the expected rainfall. Understanding the water cycle helps us understand our weather, our rivers, and even why Guyana was named \"the land of many waters.\""}, questions:[{"q": "What causes water to evaporate from rivers and oceans?", "opts": ["The wind", "The sun's heat", "The moon", "Rain"], "correct": 1, "exp": "The passage states 'the sun's heat causes water... to evaporate.'"}, {"q": "What is water vapour?", "opts": ["Frozen water", "An invisible gas made from water", "A type of cloud", "Liquid rain"], "correct": 1, "exp": "The passage describes water vapour as water 'turning from a liquid into an invisible gas.'"}, {"q": "What is the process called when water vapour changes back into tiny droplets?", "opts": ["Evaporation", "Precipitation", "Condensation", "Circulation"], "correct": 2, "exp": "The passage says 'this process is called condensation.'"}, {"q": "What do water droplets cling to in order to form clouds?", "opts": ["Specks of dust", "Leaves", "Sand", "Ice"], "correct": 0, "exp": "The passage says droplets 'cling together around specks of dust in the air.'"}, {"q": "Why do water droplets eventually fall as rain?", "opts": ["They become too light", "They become too heavy for the air to hold up", "The wind pushes them down", "The sun pulls them down"], "correct": 1, "exp": "The passage says the droplets 'become too heavy for the air to hold up, and they fall to the ground as rain.'"}, {"q": "What is the overall name given to this journey of water?", "opts": ["The rain cycle", "The weather system", "The water cycle", "The evaporation loop"], "correct": 2, "exp": "The passage names it 'the water cycle.'"}, {"q": "Besides rain, what other forms can precipitation take, according to the passage?", "opts": ["Wind and fog", "Snow or hail", "Dew and mist", "Steam and vapour"], "correct": 1, "exp": "The passage mentions precipitation as 'rain, or sometimes snow or hail.'"}, {"q": "How many rainy seasons does the water cycle bring to Guyana each year?", "opts": ["One", "Two", "Three", "Four"], "correct": 1, "exp": "The passage says 'this cycle brings two rainy seasons each year.'"}, {"q": "Why do farmers care about the water cycle, according to the passage?", "opts": ["They use it to build dams", "They plan their planting around expected rainfall", "They sell water", "They study clouds for fun"], "correct": 1, "exp": "The passage says farmers 'plan their planting around the expected rainfall.'"}, {"q": "What does the passage suggest is the connection between the water cycle and Guyana's name?", "opts": ["There is no connection", "Guyana means \"land of many waters,\" linked to its rainfall and rivers", "Guyana was named after a river", "The water cycle was discovered in Guyana"], "correct": 1, "exp": "The passage ends by connecting understanding the water cycle to 'why Guyana was named \"the land of many waters.\"'"}]}
     ]},
   soc: {name:"Social Studies", icon:"🌍", color:"c-soc", desc:"Guyana's geography, history, government and citizenship.",
     sets:[
@@ -1526,7 +1573,8 @@ const LEVELS = {
         {q:"Which is the best example of a strong, arguable thesis statement for a persuasive essay?", opts:["'Guyana is a country in South America.'","'Schools should have longer lunch breaks because it improves student focus.'","'Water is important for life.'","'Some people like sports.'"], correct:1, exp:"A strong thesis takes a clear, debatable position, unlike a simple factual statement."},
         {q:"A 'bandwagon' persuasive technique suggests that...", opts:["An idea is true because experts agree","An idea should be accepted because everyone else accepts it","An idea is false because it is unpopular","An idea has no supporting evidence"], correct:1, exp:"The bandwagon technique persuades by suggesting that because many others believe or do something, the reader should too."},
         {q:"What makes an argument 'biased'?", opts:["It fairly considers all viewpoints","It unfairly favours one side without considering opposing evidence","It uses only facts","It avoids emotional language"], correct:1, exp:"A biased argument unfairly favours one perspective, often ignoring or dismissing valid opposing evidence."}
-      ]}
+      ]},
+      {id:"cxc-eng-pbq-1", title:"Comprehension Passage: The Weight of Silence", tag:"Passage-Based", passage:{"title": "Read the passage, then answer the questions", "text": "For as long as she could remember, Odessa had been the quiet one — the daughter who listened rather than spoke, who absorbed the arguments and laughter of her large family from the edge of the room. Her older siblings often mistook her silence for a lack of opinion, and over the years, she had almost begun to believe it herself.\n\nIt was her grandmother who saw differently. \"You watch more than you speak,\" the old woman told her once, shelling pigeon peas on the back step, \"and that is not a weakness. It means when you finally open your mouth, people should listen, because you have already thought it through.\"\n\nOdessa carried those words with her long after her grandmother passed, though she rarely tested them. It was easier to let her brothers dominate family discussions, easier to nod along in class rather than raise a hand. But in her final year of secondary school, when a heated debate broke out in her economics class about whether small island nations could ever achieve true economic independence, something shifted.\n\nShe had been turning the question over for weeks, ever since a lesson on trade dependency. While her classmates argued in circles, repeating the same two or three points with rising volume, Odessa found herself, almost without deciding to, raising her hand.\n\nThe room did not fall silent — that only happens in stories — but her teacher called on her, and for the first time in years, Odessa spoke at length, laying out an argument about diversifying export economies that she hadn't realised, until that moment, she had fully formed. When she finished, there was a brief pause before her classmate Marcus said, grudgingly, \"Okay. That's actually a fair point.\"\n\nIt was a small moment, unremarkable to anyone else in the room. But walking home that afternoon, Odessa thought of her grandmother's hands, steady over the bowl of pigeon peas, and understood for the first time what she had meant."}, questions:[{"q": "How does the passage describe Odessa within her family?", "opts": ["The loudest sibling", "The quiet one who listened more than she spoke", "The eldest child", "The family's best debater"], "correct": 1, "exp": "The opening line describes her as 'the quiet one — the daughter who listened rather than spoke.'"}, {"q": "What did Odessa's older siblings mistake her silence for?", "opts": ["Shyness caused by fear", "A lack of opinion", "Anger at the family", "Disinterest in school"], "correct": 1, "exp": "The passage states her siblings 'mistook her silence for a lack of opinion.'"}, {"q": "What was Odessa's grandmother doing when she gave her advice?", "opts": ["Cooking dinner", "Shelling pigeon peas on the back step", "Reading a book", "Watching television"], "correct": 1, "exp": "The passage places this scene 'shelling pigeon peas on the back step.'"}, {"q": "According to her grandmother, why is watching more than speaking not a weakness?", "opts": ["Because it means you are shy", "Because people should listen when you finally speak, since you've thought it through", "Because it avoids arguments", "Because talking too much is rude"], "correct": 1, "exp": "The grandmother explains that when Odessa finally speaks, 'people should listen, because you have already thought it through.'"}, {"q": "What topic was being debated in Odessa's economics class?", "opts": ["Climate change", "Whether small island nations could achieve true economic independence", "The history of colonialism", "University admissions"], "correct": 1, "exp": "The debate was about 'whether small island nations could ever achieve true economic independence.'"}, {"q": "What had Odessa been thinking about in the weeks before the debate?", "opts": ["Her grandmother's death", "The question of economic independence, since a lesson on trade dependency", "Her final exams", "An argument with Marcus"], "correct": 1, "exp": "The passage says she 'had been turning the question over for weeks, ever since a lesson on trade dependency.'"}, {"q": "What does the line 'the room did not fall silent — that only happens in stories' suggest about the narrator's tone?", "opts": ["The narrator is being purely factual with no self-awareness", "The narrator is gently acknowledging and undercutting a dramatic cliché", "The narrator is confused about what happened", "The narrator dislikes Odessa"], "correct": 1, "exp": "This aside pokes fun at a common dramatic trope, showing the narrator's self-aware, slightly wry tone."}, {"q": "What was Odessa's argument about, once she spoke?", "opts": ["Diversifying export economies", "Raising taxes", "Ending trade with other countries", "Reducing school debates"], "correct": 0, "exp": "The passage says she laid out 'an argument about diversifying export economies.'"}, {"q": "How did Marcus respond to Odessa's argument?", "opts": ["He ignored her completely", "He grudgingly admitted it was a fair point", "He argued angrily against her", "He left the classroom"], "correct": 1, "exp": "Marcus said, 'grudgingly, \"Okay. That's actually a fair point.\"'"}, {"q": "What does Odessa come to understand by the end of the passage?", "opts": ["That she should always stay quiet", "The meaning behind her grandmother's earlier advice", "That Marcus was right about everything", "That economics is not interesting"], "correct": 1, "exp": "The final line says she 'understood for the first time what she had meant,' referring back to her grandmother's advice."}, {"q": "What can be inferred about the significance of the pigeon peas detail at the end of the passage?", "opts": ["It shows Odessa is hungry", "It connects the present moment back to her grandmother's earlier lesson, giving it emotional weight", "It is unrelated background detail", "It suggests Odessa wants to cook"], "correct": 1, "exp": "The pigeon peas image bookends the passage, tying Odessa's realisation back to the moment her grandmother gave her advice."}, {"q": "Which best describes the overall theme of the passage?", "opts": ["The importance of winning arguments", "Finding one's voice after a lifetime of quiet observation", "The dangers of economic dependency", "Sibling rivalry within a family"], "correct": 1, "exp": "The passage traces Odessa's journey from silence to finding the confidence to voice a well-considered opinion."}]}
     ]},
   sci: {name:"Biology", icon:"🔬", color:"c-sci", desc:"Cell biology, human systems, ecology and genetics for CSEC Biology.",
     sets:[
@@ -1832,7 +1880,8 @@ const LEVELS = {
         {q:"Which action is most appropriate immediately before a hurricane is due to make landfall?", opts:["Go swimming at the beach","Secure loose outdoor objects and follow evacuation orders if issued","Ignore official warnings","Open all windows wide"], correct:1, exp:"Securing loose objects and following official evacuation guidance helps reduce risk before a hurricane strikes."},
         {q:"Deforestation can increase the risk of which natural hazard?", opts:["Earthquakes","Landslides and flooding","Tsunamis","Volcanic eruptions"], correct:1, exp:"Removing trees weakens soil stability and reduces water absorption, increasing the risk of landslides and flooding."},
         {q:"What is the main goal of a national disaster management plan?", opts:["To eliminate all natural hazards permanently","To reduce risk and coordinate an effective response to disasters","To increase the cost of disaster recovery","To prevent government involvement in emergencies"], correct:1, exp:"A disaster management plan aims to reduce risk and ensure a coordinated, effective response when disasters occur."}
-      ]}
+      ]},
+      {id:"cxc-soc-pbq-1", title:"Passage-Based: Regional Integration and CARICOM", tag:"Passage-Based", passage:{"title": "Read the passage, then answer the questions", "text": "The Caribbean Community, known as CARICOM, was established by the Treaty of Chaguaramas in 1973, initially bringing together four founding members: Barbados, Guyana, Jamaica and Trinidad and Tobago. Today the organisation includes fifteen full member states across the Caribbean, working together on trade, foreign policy coordination, human and social development, and security.\n\nOne of CARICOM's central goals has been the creation of the CARICOM Single Market and Economy (CSME), designed to allow the free movement of goods, services, capital and skilled labour across member states. In theory, this should let a nurse trained in Jamaica work in Guyana without needing a new work permit, or allow a Barbadian business to sell its goods in Trinidad without the tariffs a non-member country might face.\n\nIn practice, implementation of the CSME has been slow and uneven. Smaller member states have sometimes worried that free movement of goods would let larger economies flood their markets, undermining local industries. Bureaucratic hurdles, differing national regulations, and a lack of political will have all been cited as reasons the single market has not been fully realised, decades after it was first proposed.\n\nGuyana's position within CARICOM has shifted noticeably in recent years. Historically one of the region's smaller economies, the discovery of major offshore oil reserves in the 2010s transformed Guyana into one of the fastest-growing economies in the world by the 2020s. This has given Guyana a more prominent voice within CARICOM discussions, even as it continues to advocate for the kind of regional cooperation that shaped the bloc's founding — including support for other member states facing economic or climate-related challenges, such as hurricane recovery efforts.\n\nSupporters argue that closer regional integration remains essential for small Caribbean states to have a meaningful voice on the world stage, from climate change negotiations to trade agreements with larger economic blocs. Critics counter that national interests often outweigh regional solidarity when it matters most, pointing to the CSME's incomplete implementation as evidence that integration, while appealing in principle, remains difficult in practice."}, questions:[{"q": "When was CARICOM established, and by what treaty?", "opts": ["1966, the Treaty of Independence", "1973, the Treaty of Chaguaramas", "1980, the Treaty of Basseterre", "1992, the Treaty of Georgetown"], "correct": 1, "exp": "The passage states CARICOM 'was established by the Treaty of Chaguaramas in 1973.'"}, {"q": "Which four countries were CARICOM's founding members?", "opts": ["Guyana, Jamaica, Trinidad and Tobago, and Barbados", "Guyana, Suriname, Belize, and The Bahamas", "Jamaica, Haiti, Cuba, and Barbados", "Trinidad, Grenada, Belize, and Guyana"], "correct": 0, "exp": "The passage names 'Barbados, Guyana, Jamaica and Trinidad and Tobago' as the four founding members."}, {"q": "How many full member states does CARICOM have today, according to the passage?", "opts": ["Four", "Ten", "Fifteen", "Twenty"], "correct": 2, "exp": "The passage states the organisation 'today... includes fifteen full member states.'"}, {"q": "What does the CSME aim to allow, according to the passage?", "opts": ["A single Caribbean currency only", "Free movement of goods, services, capital and skilled labour", "A single Caribbean military", "Free university education across the region"], "correct": 1, "exp": "The passage describes the CSME as 'designed to allow the free movement of goods, services, capital and skilled labour.'"}, {"q": "Why have some smaller member states been hesitant about the CSME's implementation?", "opts": ["They dislike CARICOM as an organisation", "They worry larger economies could flood their markets and undermine local industries", "They are not legally allowed to join", "They prefer trading only with non-CARICOM countries"], "correct": 1, "exp": "The passage says smaller states 'worried that free movement of goods would let larger economies flood their markets, undermining local industries.'"}, {"q": "What transformed Guyana's economy in the 2010s, according to the passage?", "opts": ["A boom in agricultural exports", "The discovery of major offshore oil reserves", "A new trade deal with the United States", "The expansion of tourism"], "correct": 1, "exp": "The passage attributes Guyana's transformation to 'the discovery of major offshore oil reserves in the 2010s.'"}, {"q": "How has Guyana's changed economic status affected its role in CARICOM, according to the passage?", "opts": ["Guyana withdrew from CARICOM", "It has given Guyana a more prominent voice in CARICOM discussions", "It has had no effect on CARICOM relations", "Guyana now leads CARICOM's military operations"], "correct": 1, "exp": "The passage states this change 'has given Guyana a more prominent voice within CARICOM discussions.'"}, {"q": "According to supporters mentioned in the passage, why does regional integration matter for small Caribbean states?", "opts": ["It allows them to avoid international trade entirely", "It gives them a more meaningful voice on issues like climate change and trade negotiations", "It eliminates the need for national governments", "It guarantees equal economic growth for all members"], "correct": 1, "exp": "Supporters argue integration is 'essential for small Caribbean states to have a meaningful voice on the world stage.'"}, {"q": "What evidence do critics point to when arguing that regional solidarity is limited in practice?", "opts": ["CARICOM's growing membership", "The CSME's incomplete implementation", "Guyana's oil discovery", "The founding of the Treaty of Chaguaramas"], "correct": 1, "exp": "The passage says critics point 'to the CSME's incomplete implementation as evidence' that integration is difficult in practice."}, {"q": "Which of these best summarises the overall argument of the passage?", "opts": ["CARICOM has completely failed and should be dissolved", "CARICOM has real achievements and goals, but faces ongoing tension between regional cooperation and national self-interest", "Guyana no longer needs CARICOM due to its oil wealth", "The CSME has been fully and successfully implemented"], "correct": 1, "exp": "The passage presents both CARICOM's founding goals and achievements alongside the real, ongoing challenges of implementation — a balanced view of cooperation versus national interest."}]}
     ]},
   it: {name:"Information Technology", icon:"💻", color:"c-it", desc:"Hardware, software, databases, programming concepts and the impact of IT for CSEC.",
     sets:[
@@ -2358,6 +2407,7 @@ function showView(id){
   if(id==='maths-explainer') renderFractionWall();
   if(id==='monuments-flow') renderMonumentsFlow();
   if(id==='peoples-flow') renderPeoplesFlow();
+  if(id==='pbq') renderPBQView();
   logVisit(id);
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -2502,6 +2552,7 @@ function renderCategoryNav(){
     <a onclick="showView('papers')">📄 Official Past Papers</a>
     <a onclick="showView('alerts')">🔔 News &amp; Alerts</a>
     <a onclick="showView('history')">🇬🇾 Guyana History</a>
+    <a onclick="showView('pbq')">📖 Passage-Based Questions</a>
     <a onclick="showView('guyana-explainer')">🕰️ Guyana Explained (Interactive)</a>
     <a onclick="showView('monuments-flow')">🗺️ Monuments Flow (Interactive)</a>
     <a onclick="showView('peoples-flow')">🌎 Founding Peoples Flow (Interactive)</a>
@@ -2544,7 +2595,7 @@ function showSubject(key){
   document.getElementById('subject-title').textContent = s.name + ' practice sets (' + LEVELS[currentLevel].label + ')';
   const list = document.getElementById('set-list');
   list.innerHTML = '';
-  s.sets.forEach(set=>{
+  s.sets.filter(set=>!set.passage).forEach(set=>{
     const best = getBestScore(set.id);
     const row = document.createElement('div');
     row.className = 'set-row';
@@ -2574,13 +2625,43 @@ function shuffleArray(arr){
 }
 
 function buildShuffledSet(originalSet){
-  let pool = shuffleArray(originalSet.questions);
+  let sourceQuestions = originalSet.questions;
+
+  // --- Rotation: prefer questions not seen in this set's recent attempts, so retrying feels fresh ---
+  try{
+    const seenRaw = localStorage.getItem('studymek-seen-q:' + originalSet.id);
+    const seenTexts = seenRaw ? JSON.parse(seenRaw) : [];
+    const unseen = sourceQuestions.filter(q => !seenTexts.includes(q.q));
+    const seen = sourceQuestions.filter(q => seenTexts.includes(q.q));
+    // If every question has already been seen, start a fresh rotation (treat all as unseen again)
+    sourceQuestions = unseen.length > 0 ? [...shuffleArray(unseen), ...shuffleArray(seen)] : shuffleArray(sourceQuestions);
+  } catch(e){
+    sourceQuestions = shuffleArray(sourceQuestions);
+  }
+
+  let pool = sourceQuestions;
   if(desiredQuestionCount !== 'all'){
     const n = parseInt(desiredQuestionCount, 10);
     if(!isNaN(n) && n > 0 && n < pool.length){
       pool = pool.slice(0, n);
     }
   }
+
+  // Record which questions this session used, so the next attempt rotates to fresh ones
+  try{
+    let seenTexts = pool.map(q => q.q);
+    if(seenTexts.length >= originalSet.questions.length){
+      seenTexts = []; // whole bank covered in one go — reset so the next attempt starts a new rotation
+    } else {
+      const priorRaw = localStorage.getItem('studymek-seen-q:' + originalSet.id);
+      const prior = priorRaw ? JSON.parse(priorRaw) : [];
+      seenTexts = [...new Set([...prior, ...seenTexts])];
+      // If the accumulated seen list now covers the whole bank, reset it for the next rotation
+      if(seenTexts.length >= originalSet.questions.length) seenTexts = [];
+    }
+    localStorage.setItem('studymek-seen-q:' + originalSet.id, JSON.stringify(seenTexts));
+  } catch(e){ /* localStorage unavailable — rotation just won't persist, quiz still works */ }
+
   const shuffledQuestions = pool.map(q=>{
     if(q.type === 'sa'){
       // Short-answer question: no options to shuffle, pass through as-is.
@@ -2613,11 +2694,20 @@ function startQuiz(subjectKey, setId){
   currentSubjectKey = subjectKey;
   const originalSet = subjectsFor()[subjectKey].sets.find(s=>s.id===setId);
   currentSet = buildShuffledSet(originalSet);
+  currentSet.passage = originalSet.passage || null;
   quizIndex = 0;
   quizAnswers = [];
   answered = false;
   selectedOption = null;
   showView('quiz');
+  const passagePanel = document.getElementById('passage-panel');
+  if(currentSet.passage){
+    document.getElementById('passage-label').textContent = currentSet.passage.title || 'Read the passage, then answer the questions';
+    document.getElementById('passage-text').textContent = currentSet.passage.text;
+    passagePanel.classList.remove('hidden');
+  } else {
+    passagePanel.classList.add('hidden');
+  }
   renderQuestion();
 }
 function retrySet(){ startQuiz(currentSubjectKey, currentSet.id); }
@@ -2986,7 +3076,43 @@ async function refreshHeroAvg(){
 }
 
 /* ============ INTERACTIVE GUYANA TIMELINE ============ */
+/* ============ DEDICATED PASSAGE-BASED QUESTIONS TAB ============ */
+const PBQ_INDEX = [
+  {level:'ngsa', subjectKey:'eng', setId:'eng-pbq-1', levelLabel:'NGSA', subjectLabel:'English'},
+  {level:'ngsa', subjectKey:'eng', setId:'eng-pbq-2', levelLabel:'NGSA', subjectLabel:'English'},
+  {level:'ngsa', subjectKey:'sci', setId:'sci-pbq-1', levelLabel:'NGSA', subjectLabel:'Science'},
+  {level:'cxc', subjectKey:'eng', setId:'cxc-eng-pbq-1', levelLabel:'CXC', subjectLabel:'English A'},
+  {level:'cxc', subjectKey:'soc', setId:'cxc-soc-pbq-1', levelLabel:'CXC', subjectLabel:'Social Studies'}
+];
+function renderPBQView(){
+  const list = document.getElementById('pbq-list');
+  list.innerHTML = '';
+  PBQ_INDEX.forEach(entry=>{
+    const set = LEVELS[entry.level].subjects[entry.subjectKey].sets.find(s=>s.id===entry.setId);
+    if(!set) return;
+    const best = getBestScore(set.id);
+    const row = document.createElement('div');
+    row.className = 'set-row';
+    row.innerHTML = `
+      <div class="info">
+        <span class="pill">${entry.levelLabel} · ${entry.subjectLabel}</span>
+        <b>${set.title}</b>
+        <span>${set.questions.length} questions available · multiple choice</span>
+        ${best!==null ? `<div class="best">Best score: ${best}%</div>` : ''}
+      </div>
+      <button class="go-btn" onclick="startPBQQuiz('${entry.level}','${entry.subjectKey}','${set.id}')">${best!==null?'Practice again':'Start'}</button>
+    `;
+    list.appendChild(row);
+  });
+  setQuestionCount(desiredQuestionCount);
+}
+function startPBQQuiz(level, subjectKey, setId){
+  currentLevel = level;
+  startQuiz(subjectKey, setId);
+}
+
 const GUYANA_ERAS = [
+
   {year:"Before 1600", title:"Indigenous Peoples", icon:"🏹",
    text:"Long before any European arrived, Guyana's coast, rivers and forests were home to Indigenous nations including the Arawak, Carib, Wapishana, Warrau, Akawaio, Patamona, Macushi and Wai Wai. They fished, farmed cassava, and travelled the rivers by canoe — and their descendants, place names and traditions are still part of Guyana today."},
   {year:"1600s", title:"Dutch Settlement", icon:"⛵",
