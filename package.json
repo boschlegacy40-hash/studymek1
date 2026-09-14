@@ -1,0 +1,15 @@
+{
+  "name": "studymek",
+  "version": "1.0.0",
+  "description": "StudyMek — NGSA/CXC study app with a small backend proxy for the Live News feature",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
